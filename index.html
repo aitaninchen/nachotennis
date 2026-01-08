@@ -113,31 +113,15 @@
       transform: skewX(-10deg);
     }
 
-    /* Pelota de tenis */
-    .hero-ball {
-      position: absolute;
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      left: 60%;
-      bottom: 18%;
-      background: radial-gradient(circle at 30% 25%, #ffffff, #f7ff9a 40%, #b8e645 100%);
-      box-shadow: 0 10px 18px rgba(0,0,0,0.4);
-    }
-    .hero-ball::before,
-    .hero-ball::after {
-      content: "";
-      position: absolute;
-      inset: 8px;
-      border-radius: 50%;
-      border: 3px solid #fdfdfd;
-      border-color: #fdfdfd transparent;
-      transform: rotate(20deg);
-      opacity: 0.95;
-    }
-    .hero-ball::after {
-      transform: rotate(200deg);
-    }
+  /* Pelota SVG personalizada */
+.hero-ball-img {
+  position: absolute;
+  width: 70px;      /* ajusta este tamaño si la quieres más grande o más pequeña */
+  left: 60%;
+  bottom: 18%;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,0.4));
+}
 
     main {
       max-width: var(--max-width);
@@ -321,13 +305,12 @@
       <a class="btn-primary" href="https://wa.me/491743327278">Jetzt per WhatsApp anfragen</a>
       <a class="btn-secondary" href="#contact">Weitere Kontaktmöglichkeiten</a>
     </div>
-
-    <div class="hero-image" aria-hidden="true">
-      <div class="hero-court-line"></div>
-
-      <div class="hero-ball"></div>
-      <div class="hero-badge"></div>
-    </div>
+    
+<div class="hero-image" aria-hidden="true">
+  <div class="hero-court-line"></div>
+  <img src="pelota.svg" alt="Tennisball" class="hero-ball-img" />
+</div>
+    
   </div>
 </header>
 
