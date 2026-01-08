@@ -1,723 +1,502 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="de">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2299.77">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  <meta charset="UTF-8" />
+  <title>Nacho Tennis – Formativer Tennisunterricht in Bonn</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Formatives Tennisprogramm in Bonn für Kinder und Erwachsene. Einzeltraining, Gruppentraining und Tenniscamps mit Tennistrainer Ignacio &quot;Nacho&quot; Dagostino Herrera." />
+  <style>
+    :root {
+      --green: #7fbf4d;
+      --dark-green: #264222;
+      --blue: #2c8ecf;
+      --bg: #f5f7fa;
+      --accent: #ffda3a;
+      --text: #111827;
+      --max-width: 1000px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    header {
+      background: linear-gradient(135deg, var(--blue), var(--green));
+      color: #fff;
+      padding: 1.5rem 1rem 3rem;
+    }
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .logo-ball {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .logo-ball::before,
+    .logo-ball::after {
+      content: "";
+      position: absolute;
+      inset: 4px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+    }
+    .nav a {
+      font-size: 0.9rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+    }
+    .nav a:hover { background: rgba(255,255,255,0.2); }
+
+    .hero {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 2rem;
+      align-items: center;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 2.6rem);
+      margin-bottom: 0.5rem;
+    }
+    .hero p { margin-bottom: 1rem; }
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.2rem;
+    }
+    .hero-tag {
+      font-size: 0.8rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.2);
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 0.7rem 1.4rem;
+      background: var(--accent);
+      color: #111827;
+      font-weight: 600;
+      font-size: 0.95rem;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+      margin-right: 0.5rem;
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 14px 26px rgba(0,0,0,0.3); }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 0.6rem 1.2rem;
+      border: 1px solid rgba(255,255,255,0.8);
+      font-size: 0.9rem;
+    }
+    .hero-image {
+      border-radius: 1.5rem;
+      min-height: 220px;
+      background:
+        radial-gradient(circle at 20% 20%, var(--accent), transparent 55%),
+        linear-gradient(135deg, #2e7ac2 0%, #2c8ecf 45%, #2f9b7c 100%);
+      position: relative;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+      overflow: hidden;
+    }
+    .hero-court-line {
+      position: absolute;
+      inset: 16% 12%;
+      border: 6px solid #fdfdfd;
+      border-radius: 0.7rem;
+      transform: skewX(-10deg);
+    }
+    .hero-ball {
+      position: absolute;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      left: 60%;
+      bottom: 18%;
+      background: radial-gradient(circle at 30% 25%, #ffffff, #eafc92 45%, #b8e645 100%);
+      border: 3px solid rgba(255,255,255,0.8);
+      box-shadow: 0 10px 18px rgba(0,0,0,0.4);
+    }
+    .hero-badge {
+      position: absolute;
+      left: 10%;
+      bottom: 10%;
+      background: rgba(0,0,0,0.45);
+      color: #fff;
+      padding: 0.7rem 1rem;
+      border-radius: 1rem;
+      font-size: 0.8rem;
+      max-width: 12rem;
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: -1.2rem auto 3rem;
+      padding: 0 1rem 2rem;
+    }
+    section {
+      background: #fff;
+      border-radius: 1.2rem;
+      padding: 1.8rem 1.5rem;
+      margin-top: 1.1rem;
+      box-shadow: 0 14px 35px rgba(15,23,42,0.08);
+    }
+    section h2 {
+      font-size: 1.4rem;
+      color: var(--dark-green);
+      margin-bottom: 0.6rem;
+    }
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: #4b5563;
+      margin-bottom: 0.8rem;
+    }
+    .grid-two {
+      display: grid;
+      grid-template-columns: minmax(0,1.1fr) minmax(0,1.3fr);
+      gap: 1.5rem;
+    }
+    .list-icon {
+      list-style: none;
+    }
+    .list-icon li {
+      display: flex;
+      gap: 0.6rem;
+      margin-bottom: 0.7rem;
+      font-size: 0.95rem;
+    }
+    .bullet {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: rgba(127,191,77,0.15);
+      border: 1px solid rgba(127,191,77,0.8);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      margin-top: 0.25rem;
+    }
+    .offers {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.1rem;
+      margin-top: 0.5rem;
+    }
+    .offer-card {
+      border-radius: 1rem;
+      border: 1px solid #e5e7eb;
+      background: #fafafa;
+      padding: 1rem;
+      font-size: 0.95rem;
+    }
+    .offer-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.3rem;
+    }
+    .offer-meta {
+      font-size: 0.85rem;
+      color: #6b7280;
+      margin-bottom: 0.5rem;
+    }
+    .pill {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(44,142,207,0.08);
+      font-size: 0.75rem;
+      margin-right: 0.25rem;
+      margin-top: 0.1rem;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0,1.4fr) minmax(0,1.2fr);
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .contact-item { margin-bottom: 0.6rem; font-size: 0.95rem; }
+    .contact-label { font-weight: 600; color: #374151; }
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.6rem;
+    }
+    .btn-outline {
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      padding: 0.55rem 1.1rem;
+      font-size: 0.9rem;
+      background: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn-outline:hover { background: #f3f4f6; }
+
+    footer {
+      border-top: 1px solid #e5e7eb;
+      padding: 1.5rem 1rem 2rem;
+      background: #f9fafb;
+      font-size: 0.85rem;
+    }
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.8rem;
+      align-items: center;
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+    @media (max-width: 800px) {
+      .hero { grid-template-columns: minmax(0,1fr); }
+      .hero-image { order: -1; }
+      .nav a { display: none; }
+      main { margin-top: -0.8rem; }
+      .grid-two, .contact-grid { grid-template-columns: minmax(0,1fr); }
+    }
+    @media (max-width: 600px) {
+      section { padding: 1.4rem 1.1rem; }
+    }
   </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="de"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Nacho Tennis – Formativer Tennisunterricht in Bonn&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="description" content="Formatives Tennisprogramm in Bonn: Technik- und bewegungsorientiertes Training für Kinder und Erwachsene. Einzeltraining, Gruppen und Tenniscamps mit Tennistrainer Ignacio Germán Dagostino Herrera."&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>:root {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--green: #7fbf4d;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--dark-green: #3a5b2e;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--blue: #2c8ecf;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--bg: #f5f7fa;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--text: #1e1e1e;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--accent: #ffda3a;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--max-width: 1100px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>* {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-sizing: border-box;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 0;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background-color: var(--bg);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: var(--text);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1.6;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>a {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-decoration: none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: inherit;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>header {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(135deg, var(--blue), var(--green));</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 1.5rem 1rem 3.5rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.nav {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>max-width: var(--max-width);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0 auto 1.5rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>justify-content: space-between;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.logo {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 0.75rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 700;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.08em;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-transform: uppercase;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.logo-ball {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 32px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>height: 32px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 50%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 3px solid white;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position: relative;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transform: rotate(-15deg);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.logo-ball::before,</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.logo-ball::after {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>content: "";</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position: absolute;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>inset: 4px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 50%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 2px solid var(--accent);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>opacity: 0.9;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.nav-links {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.9rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.nav-links a {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 0.4rem 0.7rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 999px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transition: background 0.2s, transform 0.1s;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.nav-links a:hover {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255, 255, 255, 0.18);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transform: translateY(-1px);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>max-width: var(--max-width);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0 auto;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 2rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero-text h1 {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: clamp(2.1rem, 4vw, 2.8rem);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 0.75rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero-text h1 span {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 800;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero-text p {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>max-width: 32rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero-tags {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>flex-wrap: wrap;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 0.5rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 1.5rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero-tag {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(0, 0, 0, 0.18);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 999px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 0.3rem 0.85rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.8rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>backdrop-filter: blur(2px);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero-buttons {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>flex-wrap: wrap;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 0.75rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.btn-primary {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: var(--accent);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #1b1b1b;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 0.7rem 1.4rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 999px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 600;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.95rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: inline-flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 0.4rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transition: transform 0.12s ease, box-shadow 0.12s ease;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.btn-primary:hover {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transform: translateY(-1px);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 14px 26px rgba(0, 0, 0, 0.22);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.btn-secondary {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 0.6rem 1.2rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 999px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid rgba(255, 255, 255, 0.8);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: transparent;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.9rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: inline-flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 0.4rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transition: background 0.15s, transform 0.1s;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.btn-secondary:hover {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(0, 0, 0, 0.18);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transform: translateY(-1px);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero-image {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position: relative;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 1.5rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>overflow: hidden;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>min-height: 230px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: radial-gradient(circle at 15% 15%, var(--accent), transparent 55%),</p>
-<p class="p1"><span class="Apple-converted-space">                  </span>linear-gradient(135deg, #2e7ac2 0%, #2c8ecf 45%, #2f9b7c 100%);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero-court-line {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position: absolute;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>inset: 15% 10%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 6px solid #fdfdfd;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 0.6rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transform: skewX(-10deg);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>opacity: 0.9;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero-ball {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position: absolute;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 56px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>height: 56px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 50%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: radial-gradient(circle at 30% 25%, #ffffff, #eafc92 45%, #b8e645 100%);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 3px solid rgba(255, 255, 255, 0.8);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>bottom: 18%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>left: 58%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 10px 18px rgba(0, 0, 0, 0.4);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero-badge {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position: absolute;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>bottom: 10%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>left: 10%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(0, 0, 0, 0.45);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 0.7rem 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.8rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>max-width: 12rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>backdrop-filter: blur(4px);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>main {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>max-width: var(--max-width);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: -1.5rem auto 3rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 0 1rem 2rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>section {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: white;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 1.2rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 1.8rem 1.5rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 1.2rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 14px 35px rgba(15, 23, 42, 0.10);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>section h2 {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1.4rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: var(--dark-green);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.section-subtitle {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.95rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #555;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.grid-two {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.4fr);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 1.5rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items: flex-start;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.list-icon {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>list-style: none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding-left: 0;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.list-icon li {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 0.6rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 0.8rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items: flex-start;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.list-icon span.bullet {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 0.3rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 18px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>height: 18px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 999px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(127, 191, 77, 0.15);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid rgba(127, 191, 77, 0.7);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: inline-flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.75rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.list-icon strong {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 600;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.tagline {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.9rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #444;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.offers {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 1.1rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 0.5rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.offer-card {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid #e5e7eb;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: #fafafa;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.offer-card h3 {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1.05rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 0.3rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.offer-meta {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.85rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #555;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 0.6rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.pill {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: inline-block;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 0.2rem 0.55rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 999px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(44, 142, 207, 0.08);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.75rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-right: 0.25rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 0.1rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.training-steps {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 0.75rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.step {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: #fafafa;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 0.9rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 0.9rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-left: 3px solid var(--green);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.9rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.step-title {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 600;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 0.3rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.locations-list {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>list-style: none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding-left: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.9rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.locations-list li {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 0.35rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.contact-grid {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 1.5rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.contact-item {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 0.6rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.95rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.contact-label {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 600;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #374151;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.contact-actions {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>flex-wrap: wrap;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 0.6rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 0.5rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.btn-outline {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 999px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid #d1d5db;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 0.55rem 1.1rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.9rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: white;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: inline-flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 0.35rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transition: background 0.15s, transform 0.1s, box-shadow 0.15s;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.btn-outline:hover {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: #f3f4f6;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transform: translateY(-1px);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 8px 18px rgba(148, 163, 184, 0.45);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.note {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.8rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #6b7280;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 0.4rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>footer {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-top: 1px solid #e5e7eb;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 1.5rem 1rem 2rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: #f9fafb;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.85rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.footer-inner {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>max-width: var(--max-width);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0 auto;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>flex-wrap: wrap;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>justify-content: space-between;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.footer-links {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 0.9rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>flex-wrap: wrap;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.footer-links a {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #4b5563;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>@media (max-width: 800px) {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>.hero {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>grid-template-columns: minmax(0, 1fr);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>.hero-image {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>order: -1;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>header {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>padding-bottom: 2.5rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>main {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>margin-top: -1rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>.nav-links {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>display: none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>@media (max-width: 600px) {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>section {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>padding: 1.4rem 1.1rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>.hero-text h1 {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>font-size: 1.9rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;header&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="nav"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="logo"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="logo-ball"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div style="font-size: 0.7rem; opacity: 0.9;"&gt;Nacho&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div style="font-size: 0.95rem;"&gt;Tennis&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;nav class="nav-links"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="#about"&gt;Über Nacho&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="#program"&gt;Programm&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="#offers"&gt;Angebote&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="#contact"&gt;Kontakt&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/nav&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="hero"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="hero-text"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h1&gt;&lt;span&gt;Formatives Tennisprogramm&lt;/span&gt; in Bonn&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>Technik- und bewegungsorientiertes Training für Kinder und Erwachsene in Bonn –<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>mit Fokus auf Koordination, gesunde Bewegung und Freude am Spiel.</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="hero-tags"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="hero-tag"&gt;Einzel- &amp;amp; Gruppentraining&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="hero-tag"&gt;Kinder &amp;amp; Erwachsene&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="hero-tag"&gt;Indoor &amp;amp; Outdoor&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="hero-buttons"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;a class="btn-primary" href="https://wa.me/491743327278"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>Jetzt per WhatsApp anfragen →</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;a class="btn-secondary" href="#contact"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>Weitere Kontaktmöglichkeiten</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="hero-image" aria-hidden="true"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="hero-court-line"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="hero-ball"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="hero-badge"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>Tennistrainer&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;strong&gt;Ignacio Germán Dagostino Herrera&lt;/strong&gt;&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>Bonn</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1">&lt;/header&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;main&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;section id="about"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="grid-two"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Über Nacho&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="section-subtitle"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>Ignacio &amp;bdquo;Nacho&amp;ldquo; Dagostino Herrera ist Tennistrainer mit einem klaren Fokus:</p>
-<p class="p1"><span class="Apple-converted-space">          </span>Kinder und Erwachsene in ihrer Bewegung, Technik und Persönlichkeit zu stärken.</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>In seinen Trainingseinheiten verbindet Nacho saubere Technik mit viel Spielfreude und</p>
-<p class="p1"><span class="Apple-converted-space">          </span>einem strukturierten, aber positiven Trainingsklima. Respekt, Zusammenarbeit und Fairplay</p>
-<p class="p1"><span class="Apple-converted-space">          </span>sind dabei genauso wichtig wie Vorhand und Aufschlag.</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Werte im Training&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;ul class="list-icon"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="bullet"&gt;✓&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;&lt;strong&gt;Formativ &amp;amp; pädagogisch:&lt;/strong&gt; Entwicklung gesunder sportlicher Gewohnheiten und</p>
-<p class="p1"><span class="Apple-converted-space">              </span>eines positiven Umgangs mit Sieg und Niederlage.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="bullet"&gt;✓&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;&lt;strong&gt;Ganzheitlich:&lt;/strong&gt; Förderung von Koordination, Bewegung, Körperkontrolle und</p>
-<p class="p1"><span class="Apple-converted-space">              </span>Konzentration.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="bullet"&gt;✓&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;&lt;strong&gt;Motivierend:&lt;/strong&gt; Ein Umfeld, in dem Kinder und Erwachsene sich wohlfühlen, gefordert</p>
-<p class="p1"><span class="Apple-converted-space">              </span>werden und Spaß am Tennis behalten.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;section id="program"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Formatives Tennisprogramm&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p class="tagline"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>Das Programm richtet sich an Einsteiger und fortgeschrittene Spielerinnen und Spieler in</p>
-<p class="p1"><span class="Apple-converted-space">      </span>verschiedenen Altersgruppen – von Kindern bis zu Erwachsenen.</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;ul class="list-icon" style="margin-top: 0.8rem;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="bullet"&gt;🎾&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;&lt;strong&gt;Technik- und bewegungsorientiertes Training&lt;/strong&gt; für alle Altersstufen.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="bullet"&gt;🎾&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;&lt;strong&gt;Koordination, Bewegung &amp;amp; Körperkontrolle:&lt;/strong&gt; Übungen, die Motorik und Bewegungssicherheit</p>
-<p class="p1"><span class="Apple-converted-space">          </span>verbessern.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="bullet"&gt;🎾&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;&lt;strong&gt;Gesunde sportliche Gewohnheiten:&lt;/strong&gt; Routinen, die langfristig Vertrauen und Fitness stärken.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="bullet"&gt;🎾&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;&lt;strong&gt;Respekt, Zusammenarbeit &amp;amp; Fairplay:&lt;/strong&gt; soziale Kompetenzen werden aktiv mittrainiert.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="bullet"&gt;🎾&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;&lt;strong&gt;Professionelles, positives &amp;amp; motivierendes Umfeld&lt;/strong&gt; – klar strukturiert, aber</p>
-<p class="p1"><span class="Apple-converted-space">          </span>mit viel Spaß.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;section id="offers"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Angebote&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p class="section-subtitle"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>Flexibel buchbare Einheiten in Bonn – auf Außenplätzen und in Hallen (je nach Saison und Verfügbarkeit).</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="offers"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="offer-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Einzeltraining&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="offer-meta"&gt;Individuelles Technik- und Taktiktraining&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>Ideal für Spielerinnen und Spieler, die gezielt an bestimmten Schlägen, Beinarbeit</p>
-<p class="p1"><span class="Apple-converted-space">          </span>oder Match-Situationen arbeiten möchten.</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div style="margin-top: 0.6rem;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="pill"&gt;Flexible Termine&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="pill"&gt;Alle Spielstärken&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="offer-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Gruppentraining&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="offer-meta"&gt;Kleingruppen für Kinder &amp;amp; Erwachsene&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>In der Gruppe entstehen Motivation und Spielfreude: Technik, Spielsituationen und</p>
-<p class="p1"><span class="Apple-converted-space">          </span>Teamgeist werden gemeinsam aufgebaut.</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div style="margin-top: 0.6rem;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="pill"&gt;Kinder &amp;amp; Jugendliche&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="pill"&gt;Erwachsene&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="offer-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Tenniscamps&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="offer-meta"&gt;Ferien- und Wochenendcamps&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>Intensives Training mit mehreren Einheiten pro Tag – kombiniert mit Spielen, Koordinationsübungen</p>
-<p class="p1"><span class="Apple-converted-space">          </span>und viel Spaß auf dem Platz.</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div style="margin-top: 0.6rem;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="pill"&gt;Ferienprogramme&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="pill"&gt;Formative Schwerpunkte&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div style="margin-top: 1.1rem; font-size: 0.9rem; color: #4b5563;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;strong&gt;Hinweis:&lt;/strong&gt; Aktuelle Zeiten, Orte und Preise werden direkt mit Nacho</p>
-<p class="p1"><span class="Apple-converted-space">      </span>abgestimmt – einfach per WhatsApp oder Telefon melden.</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;section id="training"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Ablauf &amp;amp; Trainingsorte&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="grid-two"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="section-subtitle"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>Der Ablauf wird an Alter, Spielstärke und Ziele angepasst – immer mit klarer Struktur</p>
-<p class="p1"><span class="Apple-converted-space">          </span>und genügend Raum für Spielfreude.</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="training-steps"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="step"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="step-title"&gt;1. Kennenlernen&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;Kurzes Gespräch über Erfahrung, Ziele und mögliche Trainingszeiten.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="step"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="step-title"&gt;2. Erste Einheit&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;Einschätzung der aktuellen Technik und Bewegung, Aufbau der Trainingsschwerpunkte.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="step"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="step-title"&gt;3. Individueller Plan&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;Gemeinsame Planung von Umfang, Häufigkeit und Form (Einzel oder Gruppe).&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="step"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="step-title"&gt;4. Kontinuierliche Entwicklung&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;Regelmäßiges Feedback, spielnahe Übungen und Anpassung an Fortschritte.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3 style="font-size:1.05rem; margin-bottom:0.4rem;"&gt;Orte in Bonn&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p style="font-size:0.9rem; margin-bottom:0.4rem;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>Das Training findet je nach Saison auf Außenplätzen oder in Hallen in Bonn statt.</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;ul class="locations-list"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;• Außenplätze (Sommer, wetterabhängig)&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;• Hallen (Winter- und Schlechtwetteroption)&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;• Genaue Plätze nach Absprache bei der Terminvereinbarung&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/ul&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p style="font-size:0.9rem; margin-top:0.8rem;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>Bei Interesse einfach Kontakt aufnehmen – Nacho informiert über aktuelle</p>
-<p class="p1"><span class="Apple-converted-space">          </span>Trainingszeiten, verfügbare Plätze und Hallenkapazitäten.</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;section id="contact"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Kontakt &amp;amp; Anmeldung&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="contact-grid"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="section-subtitle"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>Für Fragen, Probestunden oder konkrete Buchungen einfach direkt melden.</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="contact-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="contact-label"&gt;Tennistrainer:&lt;/span&gt;&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>Ignacio Germán Dagostino Herrera</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="contact-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="contact-label</p>
+<header>
+  <div class="nav">
+    <div class="logo">
+      <div class="logo-ball"></div>
+      <div>
+        <div style="font-size:0.7rem;opacity:0.9;">Nacho</div>
+        <div style="font-size:0.95rem;">Tennis</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#about">Über Nacho</a>
+      <a href="#program">Programm</a>
+      <a href="#offers">Angebote</a>
+      <a href="#contact">Kontakt</a>
+    </nav>
+  </div>
+
+  <div class="hero">
+    <div>
+      <h1>Formatives Tennisprogramm in Bonn</h1>
+      <p>
+        Technik- und bewegungsorientiertes Training für Kinder und Erwachsene – 
+        mit Fokus auf Koordination, gesunde Bewegung und Freude am Spiel.
+      </p>
+      <div class="hero-tags">
+        <div class="hero-tag">Einzel- &amp; Gruppentraining</div>
+        <div class="hero-tag">Kinder &amp; Erwachsene</div>
+        <div class="hero-tag">Indoor &amp; Outdoor</div>
+      </div>
+      <a class="btn-primary" href="https://wa.me/491743327278">Jetzt per WhatsApp anfragen</a>
+      <a class="btn-secondary" href="#contact">Weitere Kontaktmöglichkeiten</a>
+    </div>
+
+    <div class="hero-image" aria-hidden="true">
+      <div class="hero-court-line"></div>
+      <div class="hero-ball"></div>
+      <div class="hero-badge">
+        Tennistrainer<br />
+        <strong>Ignacio „Nacho“ Dagostino Herrera</strong><br />
+        Bonn
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="about">
+    <div class="grid-two">
+      <div>
+        <h2>Über Nacho</h2>
+        <p class="section-subtitle">
+          Ignacio „Nacho“ Dagostino Herrera ist Tennistrainer mit einem klaren Fokus:
+          Kinder und Erwachsene in ihrer Bewegung, Technik und Persönlichkeit zu stärken.
+        </p>
+        <p>
+          In seinen Trainingseinheiten verbindet Nacho saubere Technik mit viel Spielfreude
+          und einem strukturierten, aber positiven Trainingsklima. Respekt, Zusammenarbeit
+          und Fairplay sind dabei genauso wichtig wie Vorhand und Aufschlag.
+        </p>
+      </div>
+      <div>
+        <h2>Werte im Training</h2>
+        <ul class="list-icon">
+          <li>
+            <div class="bullet">✓</div>
+            <div><strong>Formativ &amp; pädagogisch:</strong> Entwicklung gesunder sportlicher Gewohnheiten
+              und eines positiven Umgangs mit Sieg und Niederlage.</div>
+          </li>
+          <li>
+            <div class="bullet">✓</div>
+            <div><strong>Ganzheitlich:</strong> Förderung von Koordination, Bewegung, Körperkontrolle
+              und Konzentration.</div>
+          </li>
+          <li>
+            <div class="bullet">✓</div>
+            <div><strong>Motivierend:</strong> Ein Umfeld, in dem Kinder und Erwachsene sich wohlfühlen,
+              gefordert werden und Spaß am Tennis behalten.</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="program">
+    <h2>Formatives Tennisprogramm</h2>
+    <p class="section-subtitle">
+      Das Programm richtet sich an Einsteiger und fortgeschrittene Spielerinnen und Spieler in
+      verschiedenen Altersgruppen – von Kindern bis zu Erwachsenen.
+    </p>
+    <ul class="list-icon">
+      <li>
+        <div class="bullet">🎾</div>
+        <div><strong>Technik- und bewegungsorientiertes Training</strong> für alle Altersstufen.</div>
+      </li>
+      <li>
+        <div class="bullet">🎾</div>
+        <div><strong>Koordination, Bewegung &amp; Körperkontrolle:</strong> Übungen, die Motorik und
+          Bewegungssicherheit verbessern.</div>
+      </li>
+      <li>
+        <div class="bullet">🎾</div>
+        <div><strong>Gesunde sportliche Gewohnheiten:</strong> Routinen, die langfristig Vertrauen
+          und Fitness stärken.</div>
+      </li>
+      <li>
+        <div class="bullet">🎾</div>
+        <div><strong>Respekt, Zusammenarbeit &amp; Fairplay:</strong> soziale Kompetenzen werden aktiv
+          mittrainiert.</div>
+      </li>
+      <li>
+        <div class="bullet">🎾</div>
+        <div><strong>Professionelles, positives &amp; motivierendes Umfeld</strong> – klar strukturiert,
+          aber mit viel Spaß.</div>
+      </li>
+    </ul>
+  </section>
+
+  <section id="offers">
+    <h2>Angebote</h2>
+    <p class="section-subtitle">
+      Flexibel buchbare Einheiten in Bonn – auf Außenplätzen und in Hallen (je nach Saison und Verfügbarkeit).
+    </p>
+    <div class="offers">
+      <div class="offer-card">
+        <h3>Einzeltraining</h3>
+        <div class="offer-meta">Individuelles Technik- und Taktiktraining</div>
+        <p>Ideal für Spielerinnen und Spieler, die gezielt an bestimmten Schlägen,
+          Beinarbeit oder Match-Situationen arbeiten möchten.</p>
+        <div>
+          <span class="pill">Flexible Termine</span>
+          <span class="pill">Alle Spielstärken</span>
+        </div>
+      </div>
+      <div class="offer-card">
+        <h3>Gruppentraining</h3>
+        <div class="offer-meta">Kleingruppen für Kinder &amp; Erwachsene</div>
+        <p>In der Gruppe entstehen Motivation und Spielfreude: Technik, Spielsituationen
+          und Teamgeist werden gemeinsam aufgebaut.</p>
+        <div>
+          <span class="pill">Kinder &amp; Jugendliche</span>
+          <span class="pill">Erwachsene</span>
+        </div>
+      </div>
+      <div class="offer-card">
+        <h3>Tenniscamps</h3>
+        <div class="offer-meta">Ferien- und Wochenendcamps</div>
+        <p>Intensives Training mit mehreren Einheiten pro Tag – kombiniert mit Spielen,
+          Koordinationsübungen und viel Spaß auf dem Platz.</p>
+        <div>
+          <span class="pill">Ferienprogramme</span>
+          <span class="pill">Formative Schwerpunkte</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Kontakt &amp; Anmeldung</h2>
+    <div class="contact-grid">
+      <div>
+        <p class="section-subtitle">
+          Für Fragen, Probestunden oder konkrete Buchungen einfach direkt melden.
+        </p>
+        <div class="contact-item">
+          <span class="contact-label">Tennistrainer:</span><br />
+          Ignacio Germán Dagostino Herrera
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">Telefon / WhatsApp:</span><br />
+          <a href="https://wa.me/491743327278">+49 174 3327278</a>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">E-Mail:</span><br />
+          <a href="mailto:info@nachotennis.de">info@nachotennis.de</a>
+        </div>
+        <div class="contact-actions">
+          <a class="btn-outline" href="https://wa.me/491743327278">WhatsApp öffnen</a>
+          <a class="btn-outline" href="mailto:info@nachotennis.de">E-Mail schreiben</a>
+        </div>
+      </div>
+      <div>
+        <p class="section-subtitle">
+          Trainingsorte in Bonn
+        </p>
+        <p style="font-size:0.9rem;">
+          Das Training findet je nach Saison auf Außenplätzen oder in Hallen in Bonn statt.
+          Genaue Plätze und Zeiten werden bei der Terminvereinbarung individuell abgestimmt.
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>© <span id="year"></span> Nacho Tennis – Bonn</div>
+    <div class="footer-links">
+      <a href="#about">Über Nacho</a>
+      <a href="#offers">Angebote</a>
+      <a href="#contact">Kontakt</a>
+    </div>
+  </div>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</footer>
 </body>
 </html>
